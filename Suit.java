@@ -1,0 +1,6 @@
+enum Suit {
+	SPADES,
+	HEARTS,
+	CLOVER,
+	DIAMONDS
+}
