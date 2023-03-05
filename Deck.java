@@ -37,4 +37,19 @@ public class Deck{
 
 		return allCard;
 	}
+
+
+	/** To iterate over an enumeration, we use values() method which is implicitly declared by the compiler. 
+	 *  So it is not listed on Enum doc. 
+	 * 
+	 * 	suit and value here are instances of Suit and Rank hence we can call the Card(constructor) that way.
+	 *  Note that we are adding the card into the Arraylist shoe so we can just use the .add() function for
+	 *  arrayList and not the addCard() function we have defined.*/
+	public void prepareDeck() {
+		for (Suit suit : Suit.values()) {	
+			for (Rank value : Rank.values()) {
+				shoe.add(new Card(suit, value));
+			}
+		}
+	}
 }
