@@ -18,9 +18,9 @@ public class Deck{
 		shoe = new ArrayList<Card>(); //Only create the ArrayList that hold object Card if Deck() constructor is called.
 	}
 
-	// Collections.shuffle() will only work with List. It works with ArrayList since ArrayList implements the List interface.
+
 	public void shuffle() {
-		Collections.shuffle(shoe);
+		Collections.shuffle(shoe); // Collections.shuffle() will only work with List. It works with ArrayList since ArrayList implements the List interface.
 	}
 
 	/** Since it does not matter which card we draw from the deck, we generate a random int respective to the size of the 
@@ -39,7 +39,7 @@ public class Deck{
 	}
 
 
-	public String toString() {	// This function should return all the cards in the current shoe.
+	public String toString() {	
 		String allCard = "";
 
 		for(Card card : shoe) {
@@ -62,5 +62,10 @@ public class Deck{
 				shoe.add(new Card(suit, value));
 			}
 		}
+	}
+
+
+	public void clear() {
+		shoe.clear();	// Empty the shoe for the game to reshuffle the deck.
 	}
 }

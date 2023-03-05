@@ -9,8 +9,10 @@ public class MainGame{
 		Deck shoe = new Deck();
 		shoe.prepareDeck();
 		shoe.shuffle();
-		// Card a = shoe.drawCard();
-		System.out.println(shoe.size());
-		// System.out.println(a);
+		Card a = shoe.drawCard();
+		// System.out.println(shoe);
+		System.out.println(a);
+		shoe.clear();
+		System.out.println(shoe + "Empty");
 	}
 }
