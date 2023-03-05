@@ -7,26 +7,31 @@
  *  use ArrayList. */
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck{
 	private ArrayList<Card> shoe;
+
 
 	public Deck() {
 		shoe = new ArrayList<Card>(); //Only create the ArrayList that hold object Card if Deck() constructor is called.
 	}
 
-	public void shuffleDeck() {
-		; // Some function that will take all the discarded cards and add them all back into 
-		// the ArrayList and shuffle them.
+
+	public void shuffle() {
+		Collections.shuffle(shoe);
 	}
 
-	// public Card drawCard() {
-	// 	; // Some function that will remove a card from the ArrayList and return it
-	// }
+
+	public void drawCard() {
+		; // Some function that will remove a card from the ArrayList and return it
+	}
+
 
 	public void addCard(Card card) {
 		shoe.add(card);
 	}
+
 
 	public String toString() {	// This function should return all the cards in the current shoe.
 		String allCard = "";
