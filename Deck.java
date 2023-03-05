@@ -23,13 +23,10 @@ public class Deck{
 		Collections.shuffle(shoe); // Collections.shuffle() will only work with List. It works with ArrayList since ArrayList implements the List interface.
 	}
 
-	/** Since it does not matter which card we draw from the deck, we generate a random int respective to the size of the 
-	 *  shoe and get the card object and remove it from the arraylist. */
+	
 	public Card drawCard() {
-		Random rand = new Random();
-		int index = rand.nextInt(shoe.size());
-		Card card = shoe.get(index);
-		shoe.remove(index);
+		Card card = shoe.get(0);
+		shoe.remove(0);
 		return card;
 	}
 
