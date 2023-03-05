@@ -5,9 +5,19 @@ public class MainGame{
 
 	public static void main(String[] args){
 		System.out.println("Welcome to my Blackjack game");
+
+
 		Suit a = Suit.CLUBS;
 		Rank b = Rank.ACE;
+		Rank two = Rank.TWO;
+		Rank three = Rank.THREE;
+
 		Card c = new Card(a, b);
-		System.out.println(c.getSuit());
+		Card d = new Card(a, two);
+
+		Deck shoe = new Deck();
+		shoe.addCard(c);
+		shoe.addCard(d);
+		System.out.println(shoe);
 	}
 }
