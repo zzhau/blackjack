@@ -34,11 +34,6 @@ public class Deck{
 	}
 
 
-	public void addCard(Card card) {
-		shoe.add(card);
-	}
-
-
 	public String toString() {	
 		String allCard = "";
 
