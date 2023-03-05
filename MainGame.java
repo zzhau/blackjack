@@ -1,3 +1,6 @@
+/** This is going to be the driver class of the program which will create an instance 
+ * of the Game class */
+
 public class MainGame{
 
 	public static void main(String[] args){
