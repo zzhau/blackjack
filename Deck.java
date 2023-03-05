@@ -8,6 +8,7 @@
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class Deck{
 	private ArrayList<Card> shoe;
@@ -17,14 +18,19 @@ public class Deck{
 		shoe = new ArrayList<Card>(); //Only create the ArrayList that hold object Card if Deck() constructor is called.
 	}
 
-
+	// Collections.shuffle() will only work with List. It works with ArrayList since ArrayList implements the List interface.
 	public void shuffle() {
 		Collections.shuffle(shoe);
 	}
 
-
-	public void drawCard() {
-		; // Some function that will remove a card from the ArrayList and return it
+	/** Since it does not matter which card we draw from the deck, we generate a random int respective to the size of the 
+	 *  shoe and get the card object and remove it from the arraylist. */
+	public Card drawCard() {
+		Random rand = new Random();
+		int index = rand.nextInt(shoe.size());
+		Card card = shoe.get(index);
+		shoe.remove(index);
+		return card;
 	}
 
 
