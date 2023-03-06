@@ -1,11 +1,16 @@
 /** Game object will create instances of other classes that we need to run the game
- * such as the game deck, player and dealer. */
+ *  such as the game deck, player and dealer. Whenever we create an instance of Game,
+ *  it means we started a new game hence it will create all the objects needed for a
+ *  game such as the playing deck, dealer and player as well as shuffle the deck. In
+ *  the end it will call startRound() which will give both the player and the dealer 
+ *  two card to start the game.*/
 
 public class Game{
 
     private Deck deck;
     private Dealer dealer; 
     private Player player;
+
 
     public Game(){
         deck = new Deck();
@@ -17,10 +22,29 @@ public class Game{
         startRound();
     }
 
+
     public void startRound() {
+        
         dealer.hit(deck);
         dealer.hit(deck);
-        System.out.println(dealer.getHand());
-        System.out.println(dealer.getHand().totalValue());
+        
+        player.hit(deck);
+        player.hit(deck);
+
+    }
+
+
+    public Dealer getDealer() {
+        return dealer;
+    }
+
+
+    public Player getPlayer() {
+        return player;
+    }
+
+
+    public Deck getDeck() {
+        return deck;
     }
 }

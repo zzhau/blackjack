@@ -60,4 +60,9 @@ public class Deck{
 	public void clear() {
 		shoe.clear();	// Empty the shoe for the game to reshuffle the deck.
 	}
+
+
+	public int getSize() {
+		return shoe.size(); 	// Check how many cards are remaining in the deck
+	}
 }
