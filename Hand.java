@@ -31,7 +31,7 @@ public class Hand {
     public String toString() {
     	String temp = "";
     	for (Card card : hand) {
-	    	temp += card;
+	    	temp += ("[" + card + "]");
     	}
     	return temp;
     }

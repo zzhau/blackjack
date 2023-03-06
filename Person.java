@@ -34,4 +34,8 @@ public class Person {
 	public Hand getHand() {
     	return hand;
     }
+
+    // public String toString() {
+    // 	return hand.
+    // }
 }
