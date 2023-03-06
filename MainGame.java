@@ -8,9 +8,5 @@ public class MainGame{
 	public static void main(String[] args){
 		System.out.println("Welcome to my Blackjack game");
 		Game game = new Game();
-		System.out.println(game.getDealer().getHand());
-		System.out.println(game.getDealer().getHand().totalValue());
-		System.out.println(game.getPlayer().getHand().totalValue());
-		System.out.println(game.getDeck().getSize());
 	}
 }

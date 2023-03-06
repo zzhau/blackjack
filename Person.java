@@ -36,7 +36,7 @@ public class Person {
     }
 
 
-    // public void clear() {
-	// 	hand.clear();	
-	// }
+    public void clear() {
+		hand.clearHand();	
+	}
 }

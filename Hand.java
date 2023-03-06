@@ -40,4 +40,9 @@ public class Hand {
     	}
     	return temp;
     }
+
+
+    public void clearHand() {
+        hand.clear();   
+    }
 }

@@ -15,7 +15,9 @@ public class Player extends Person{
         System.out.println("-----------------------");
     }
 
-
+    /** It will repeatedly ask the user for a valid input and only break out of the
+     *  while loop once it receive a valid input. Afterward it will call itself recursively
+     *  until the user bust or the user decided to stand.*/
     public void decision(Deck deck) {
         
         boolean validInput = false;
@@ -25,13 +27,29 @@ public class Player extends Person{
             try {
                 System.out.println("1)Hit or 2)Stand");
                 decision = input.nextInt();
-                validInput = true;
+                if ((decision == 1) || (decision == 2)){
+                    validInput = true;
+                }
             }
             catch (Exception e){
                 System.out.println("Invalid input. Please enter either 1 or 2.");
                 input.next();
             }
-        System.out.println("You selected: " + decision);
+        }
+
+        if (decision == 1) {
+            this.getHand().drawCard(deck);
+            if (this.getHand().totalValue() > 21) {
+                System.out.println("<<<<<<<<<<You busted!>>>>>>>>>>");
+                return;
+            }
+            this.showHand();
+
+            decision(deck);
+
+        }
+        else if (decision == 2) {
+            return;
         }
     }
 
