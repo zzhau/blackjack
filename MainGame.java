@@ -13,7 +13,12 @@ public class MainGame{
 		hand.drawCard(shoe);
 		hand.drawCard(shoe);
 		// System.out.println(shoe);
-		System.out.println(hand);
-		System.out.println(hand.totalValue());
+		// System.out.println(hand);
+		// System.out.println(hand.totalValue());
+
+		Dealer myDealer = new Dealer();
+		Dealer nes = myDealer;
+		nes.setName("Hi");
+		System.out.println("The dealer's name is: " + myDealer.getName());
 	}
 }

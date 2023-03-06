@@ -3,16 +3,35 @@
 
 public class Person {
 	private Hand hand;
+	private String name;
 
-	public Person(Hand hand) {
-		this.hand = hand;
+
+	public Person() {
+		this.hand = new Hand();
 	}
+
 
 	public void hit(Deck deck) {
 		hand.drawCard(deck); 
 	}
 
+
 	public boolean hasBlackjack() {
 		return (hand.totalValue() == 21);
 	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public Hand getHand() {
+    	return hand;
+    }
 }

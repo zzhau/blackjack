@@ -3,7 +3,19 @@
 
 public class Game{
 
+    private Deck deck;
+    private Dealer dealer; 
+    private Player player;
+
     public Game(){
+        deck = new Deck();
+        dealer = new Dealer();
+        player = new Player();
+
+        deck.shuffle();
+    }
+
+    public void startRound() {
         ;
     }
 }
