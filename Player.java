@@ -40,7 +40,6 @@ public class Player extends Person{
         if (decision == 1) {
             this.getHand().drawCard(deck);
             if (this.getHand().totalValue() > 21) {
-                System.out.println("<<<<<<<<<<You busted!>>>>>>>>>>");
                 return;
             }
             this.showHand();

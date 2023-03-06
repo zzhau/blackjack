@@ -71,7 +71,7 @@ public class Game{
                 startRound();
             }
             else {
-                System.out.println("<<<<<<<<<<You win!>>>>>>>>>>");
+                System.out.println("<<<<<<<<<<You win with a blackjack!>>>>>>>>>>");
                 dealer.showHand();
                 player.showHand();
                 startRound();
@@ -80,19 +80,37 @@ public class Game{
 
         //Ask the player if they want to hit or stand when they havent bust 
         player.decision(deck);
-        dealer.showHand();
-        player.showHand();
-        startRound();
 
-
-        // We know that the player wont have a blackjack anymore at this point so only 
-        // the dealer can have blackjack. 
-        if (dealer.hasBlackjack()) {
+        /** We know that the player wont have a blackjack anymore at this point so only 
+        *   the dealer can have blackjack. We also check  for the case where the dealer did 
+        *   not get a blackjack and that the dealer totalValue is greater than the player totalValue
+        *   resulting in the player losing */
+        if (player.getHand().totalValue() > 21) {
+            System.out.println("<<<<<<<<<<You busted!>>>>>>>>>>");
+            dealer.showHand();
+            player.showHand();
+            startRound();
+        }
+        else if ((dealer.hasBlackjack()) || (dealer.getHand().totalValue() > player.getHand().totalValue())) {
             System.out.println("<<<<<<<<<<You lose!>>>>>>>>>>");
             dealer.showHand();
             player.showHand();
             startRound();
         }
+        else if (dealer.getHand().totalValue() < player.getHand().totalValue()) {
+            System.out.println("<<<<<<<<<<You win!>>>>>>>>>>");
+            dealer.showHand();
+            player.showHand();
+            startRound();
+        }
+        else if (dealer.getHand().totalValue() == player.getHand().totalValue()) {
+            System.out.println("<<<<<<<<<<Both dealer and player have the same value - TIE>>>>>>>>>>>");
+            dealer.showHand();
+            player.showHand();
+            startRound();
+        }
+
+        startRound();
     }
 
 
