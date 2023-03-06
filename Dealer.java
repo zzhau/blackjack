@@ -1,6 +1,4 @@
 public class Dealer extends Person{
-    private Hand hand;
-
 
     public Dealer() {
     	super();
@@ -23,7 +21,8 @@ public class Dealer extends Person{
 
     /** Check whether the dealer first card is Ace so that the dealer
     *   does not automatically lose to the player when the user get a 
-    *   blackjack */
+    *   blackjack. This is only used for the insurance option which 
+    *   is not yet implemented*/
     public boolean firstAce() {
         return ((this.getHand().getCard(0).getValue()) == 11);
     }

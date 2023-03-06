@@ -35,4 +35,8 @@ public class Person {
     	return hand;
     }
 
+
+    // public void clear() {
+	// 	hand.clear();	
+	// }
 }

@@ -3,13 +3,33 @@
  *  it means we started a new game hence it will create all the objects needed for a
  *  game such as the playing deck, dealer and player as well as shuffle the deck. In
  *  the end it will call startRound() which will give both the player and the dealer 
- *  two card to start the game.*/
+ *  two card to start the game.
+ * 
+ *  Scenarios we have to consider are:
+ *  
+ *  First scenario:
+ *  -Dealer have a possibility to get blackjack from two cards so we need to give the user 
+ *  a insurance option. (Not yet implemented)
+ * 
+ *  Second scenario:
+ *  -Player get blackjack which make them automatically win.
+ * 
+ *  Third scenario:
+ *  -Player bust and the dealer automatically win
+ * 
+ *  Fourth scenario:
+ *  -Dealer win with higher value
+ * 
+ *  Fifth scenario:
+ *  -Dealer bust and player win
+ * */
 
 public class Game{
 
     private Deck deck;
     private Dealer dealer; 
     private Player player;
+    private boolean bust = false;
 
 
     public Game(){
@@ -35,6 +55,51 @@ public class Game{
 
         dealer.dealerFirstHand();
         player.showHand();
+
+        // Check if player have blackjack and if yes check whether dealer has blackjack
+        // so that they will tie if they both have blackjack.
+        if (player.hasBlackjack()) {
+            if (dealer.hasBlackjack()) {
+                System.out.println("Both dealer and player have blackjack - PUSH");
+                dealer.showHand();
+                player.showHand();
+                startRound();
+            }
+            else {
+                System.out.println("You win!");
+                dealer.showHand();
+                player.showHand();
+                startRound();
+            }
+        }
+
+
+        // Ask the player if they want to hit or stand when they havent bust 
+        // do {
+        //     player.decision(deck);
+
+        //     if (player.getHand().totalValue() > 21) {
+        //         System.out.println("You busted");
+        //         dealer.showHand();
+        //         player.showHand();
+        //         startRound();
+        //     }
+        // }
+        // while (bust == false);
+
+
+        player.decision(deck);
+
+
+
+        // We know that the player wont have a blackjack anymore at this point so only 
+        // the dealer can have blackjack. 
+        if (dealer.hasBlackjack()) {
+            System.out.println("You lose!");
+            dealer.showHand();
+            player.showHand();
+            startRound();
+        }
     }
 
 
