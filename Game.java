@@ -22,7 +22,9 @@ public class Game{
         startRound();
     }
 
-
+    /** At the start of the game, give both the dealer and player two card each.
+     *  Afterward, it will print out the current state of the game with the Dealer
+     *  2nd card being hidden.*/
     public void startRound() {
         
         dealer.hit(deck);
@@ -31,6 +33,8 @@ public class Game{
         player.hit(deck);
         player.hit(deck);
 
+        dealer.dealerFirstHand();
+        player.showHand();
     }
 
 

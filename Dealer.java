@@ -8,4 +8,16 @@ public class Dealer extends Person{
     }
 
 
+    public void dealerFirstHand() {
+        System.out.println("-----Dealer's Hand-----");
+        System.out.println("[" + this.getHand().getCard(0) + "]" + " [Hidden]");
+        System.out.println("-----------------------");
+    }
+
+
+    public void showHand() {
+        System.out.println("-----Dealer's Hand-----");
+        System.out.println(this.getHand());
+        System.out.println("-----------------------");
+    }
 }

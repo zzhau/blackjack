@@ -13,6 +13,11 @@ public class Hand {
     }
 
 
+    public Card getCard(int index) {
+        return hand.get(index);
+    }
+
+
     public int totalValue() {
     	int value = 0;
 

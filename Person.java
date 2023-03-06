@@ -35,7 +35,4 @@ public class Person {
     	return hand;
     }
 
-    // public String toString() {
-    // 	return hand.
-    // }
 }
