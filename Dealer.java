@@ -20,4 +20,11 @@ public class Dealer extends Person{
         System.out.println(this.getHand());
         System.out.println("-----------------------");
     }
+
+    /** Check whether the dealer first card is Ace so that the dealer
+    *   does not automatically lose to the player when the user get a 
+    *   blackjack */
+    public boolean firstAce() {
+        return ((this.getHand().getCard(0).getValue()) == 11);
+    }
 }
