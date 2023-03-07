@@ -38,7 +38,7 @@ public class Player extends Person{
         }
 
         if (decision == 1) {
-            this.getHand().drawCard(deck);
+            this.hit(deck);
             if (this.getHand().totalValue() > 21) {
                 return;
             }

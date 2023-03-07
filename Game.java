@@ -81,23 +81,36 @@ public class Game{
         //Ask the player if they want to hit or stand when they havent bust 
         player.decision(deck);
 
-        /** We know that the player wont have a blackjack anymore at this point so only 
-        *   the dealer can have blackjack. We also check  for the case where the dealer did 
-        *   not get a blackjack and that the dealer totalValue is greater than the player totalValue
-        *   resulting in the player losing */
+
+        // We check if the player hand busted before allowing the dealer to draw cards.
         if (player.getHand().totalValue() > 21) {
             System.out.println("<<<<<<<<<<You busted!>>>>>>>>>>");
             dealer.showHand();
             player.showHand();
             startRound();
         }
-        else if ((dealer.hasBlackjack()) || (dealer.getHand().totalValue() > player.getHand().totalValue())) {
+
+        dealer.decision(deck);
+
+        // Check if the dealer busted
+        if (dealer.getHand().totalValue() > 21) {
+            System.out.println("<<<<<<<<<<Dealer busted!>>>>>>>>>>");
+            dealer.showHand();
+            player.showHand();
+            startRound();
+        }
+
+        /** We know that the player wont have a blackjack anymore at this point so only 
+        *   the dealer can have blackjack. We also check for the case where the dealer did 
+        *   not get a blackjack and that the dealer totalValue is greater than the player totalValue
+        *   resulting in the player losing */
+        if ((dealer.hasBlackjack()) || (dealer.getHand().totalValue() > player.getHand().totalValue())) {
             System.out.println("<<<<<<<<<<You lose!>>>>>>>>>>");
             dealer.showHand();
             player.showHand();
             startRound();
         }
-        else if (dealer.getHand().totalValue() < player.getHand().totalValue()) {
+        else if ((dealer.getHand().totalValue() < player.getHand().totalValue()) || dealer.getHand().totalValue() > 21) {
             System.out.println("<<<<<<<<<<You win!>>>>>>>>>>");
             dealer.showHand();
             player.showHand();

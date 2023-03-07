@@ -26,4 +26,19 @@ public class Dealer extends Person{
     public boolean firstAce() {
         return ((this.getHand().getCard(0).getValue()) == 11);
     }
+
+
+    public void decision(Deck deck) {
+
+        // Dealer must always stand on value greater than 17
+        if (this.getHand().totalValue() >= 17) {
+            return;
+        }
+
+        // Dealer must hit when their value is less than 16
+        do {
+            this.hit(deck);
+        }
+        while(this.getHand().totalValue() <= 16);
+    }
 }
